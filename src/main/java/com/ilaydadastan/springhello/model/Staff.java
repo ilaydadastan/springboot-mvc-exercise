@@ -1,28 +1,38 @@
 package com.ilaydadastan.springhello.model;
 
+import jakarta.persistence.*;
+
 import java.util.UUID;
 
+@Entity
+@Table(name = "EMPLOYEE")
 public class Staff {
-    private UUID id;
+    @Id
+    @Column(name = "EMPLOYEE_ID")
+    private String id;
+    @Column(name = "FIRST_NAME")
     private String firstName;
+    @Column(name = "LAST_NAME")
     private String lastName;
+    @Column(name = "POSITION")
     private String position;
 
     public Staff() {
+        this.id = UUID.randomUUID().toString();
     }
 
-    public Staff(UUID id, String firstName, String lastName, String position) {
+    public Staff(String id, String firstName, String lastName, String position) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.position = position;
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 

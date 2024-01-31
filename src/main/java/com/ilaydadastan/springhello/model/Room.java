@@ -1,17 +1,15 @@
 package com.ilaydadastan.springhello.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "ROOM")
 public class Room {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ROOM_ID")
-    private long id;
+    private Long id;
     @Column(name = "NAME")
     private String name;
     @Column(name = "ROOM_NUMBER")
@@ -22,18 +20,18 @@ public class Room {
     public Room() {
     }
 
-    public Room(long id, String name, String number, String bedInfo) {
+    public Room(Long id, String name, String number, String bedInfo) {
         this.id = id;
         this.name = name;
         this.number = number;
         this.bedInfo = bedInfo;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
